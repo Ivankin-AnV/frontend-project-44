@@ -30,3 +30,6 @@ $ sudo npm link
 ```
 $ brain-even
 ``` 
+#### Пример игры
+
+[![asciicast](https://asciinema.org/a/TtQH9XlDCOGC9cf2pdOul6XnE)](https://asciinema.org/a/TtQH9XlDCOGC9cf2pdOul6XnE)
