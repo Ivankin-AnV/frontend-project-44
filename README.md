@@ -57,6 +57,6 @@ $ brain-gcd
 ```
 #### Пример игры
 
-[![asciicast]( https://asciinema.org/a/V1HRN84gXXOqf3kQfm9FLCjap.svg)]( https://asciinema.org/a/V1HRN84gXXOqf3kQfm9FLCjap)\
+[![asciicast]( https://asciinema.org/a/V1HRN84gXXOqf3kQfm9FLCjap.svg)]( https://asciinema.org/a/V1HRN84gXXOqf3kQfm9FLCjap)
 
 
