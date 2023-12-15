@@ -14,9 +14,11 @@ const isPrimeNumber = (number) => {
 
 const getQuestionAndAnswer = () => {
   const question = getRandomNumber(2, 50);
-  const answer = isPrimeNumber(question) ? 'yes' : 'no';
-  return [question, answer];
+  const correctAnswer = isPrimeNumber(question) ? 'yes' : 'no';
+
+  return [question, correctAnswer];
 };
+
 export default () => {
   startGame(description, getQuestionAndAnswer);
 };

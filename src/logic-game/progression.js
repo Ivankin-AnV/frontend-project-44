@@ -4,7 +4,7 @@ import { getRandomNumber } from '../randomNumber.js';
 const progressionLength = 10;
 const description = 'What number is missing in the progression?';
 
-const getProgression = () => {
+const getArithmeticProgression = () => {
   let progressionNumber = getRandomNumber(0, 50);
   const step = getRandomNumber(2, 5);
   const progression = [];
@@ -17,7 +17,7 @@ const getProgression = () => {
 };
 
 const getQuestionAndAnswer = () => {
-  const progression = getProgression();
+  const progression = getArithmeticProgression();
   const randomIndex = getRandomNumber(0, progressionLength);
 
   const correctAnswer = String(progression[randomIndex]);
