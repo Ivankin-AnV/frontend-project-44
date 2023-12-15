@@ -6,7 +6,7 @@ const description = 'What number is missing in the progression?';
 
 const getArithmeticProgression = () => {
   let progressionNumber = getRandomNumber(0, 50);
-  const step = getRandomNumber(2, 5);
+  const step = getRandomNumber(5, 2);
   const progression = [];
 
   for (let i = 0; i < progressionLength; i += 1) {
