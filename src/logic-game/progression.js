@@ -1,7 +1,7 @@
 import startGame from '../index.js';
 import { getRandomNumber } from '../randomNumber.js';
 
-const progressionLength = 10;
+const progressionlength = 10;
 const description = 'What number is missing in the progression?';
 
 const getArithmeticProgression = () => {
@@ -9,7 +9,7 @@ const getArithmeticProgression = () => {
   const step = getRandomNumber(2, 100);
   const progression = [];
 
-  for (let i = 0; i < progressionLength; i += 1) {
+  for (let i = 0; i < progressionlength; i += 1) {
     progression.push(progressionNumber);
     progressionNumber += step;
   }
@@ -18,7 +18,7 @@ const getArithmeticProgression = () => {
 
 const getQuestionAndAnswer = () => {
   const progression = getArithmeticProgression();
-  const randomIndex = getRandomNumber(0, progressionLength);
+  const randomIndex = getRandomNumber(0, progressionlength - 1);
 
   const correctAnswer = String(progression[randomIndex]);
   progression[randomIndex] = '..';
