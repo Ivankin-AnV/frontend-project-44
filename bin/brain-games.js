@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import greetingPlayer from '../src/cli.js';
+import start from '../src/cli.js';
 
-greetingPlayer();
+start();
