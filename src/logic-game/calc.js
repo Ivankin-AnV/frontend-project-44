@@ -1,5 +1,5 @@
-import startGames from '../index.js';
-import getRandomNumber from '../randomNumber.js';
+import getRandomNum from '../randomNumber.js';
+import startGame from '../index.js';
 
 const calculate = (num1, num2, operator) => {
   switch (operator) {
@@ -17,15 +17,15 @@ const calculate = (num1, num2, operator) => {
 const description = 'What is the result of the expression?';
 
 const getQuestionAndAnswer = () => {
-  const num1 = getRandomNumber();
-  const num2 = getRandomNumber();
+  const num1 = getRandomNum();
+  const num2 = getRandomNum();
   const operators = ['+', '-', '*'];
-  const operator = operators[getRandomNumber(0, operators.length - 1)];
+  const operator = operators[getRandomNum(0, operators.length - 1)];
   const question = `${num1} ${operator} ${num2}`;
   const answer = toString(calculate(num1, num2, operator));
   return [question, answer];
 };
 
-const runGame = () => startGames(getQuestionAndAnswer, description);
+const start = () => startGame(getQuestionAndAnswer, description);
 
-export default runGame;
+export default start;
