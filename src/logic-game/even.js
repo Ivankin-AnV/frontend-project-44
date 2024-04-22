@@ -13,6 +13,8 @@ const getQuestionAndAnswer = () => {
   return [question, correctAnswer];
 };
 
-export default () => {
+const runGameWithQuestion = () => {
   runGame(description, getQuestionAndAnswer);
 };
+
+export default runGameWithQuestion;
