@@ -1,3 +1,6 @@
-const getRandomNumber = (min = 1, max = 99) => Math.round(Math.random() * (max - min)) + min;
+export default (min = 1, max = 99) => {
+  const minValue = Math.ceil(min);
+  const maxValue = Math.floor(max);
 
-export default getRandomNumber;
+  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+};
