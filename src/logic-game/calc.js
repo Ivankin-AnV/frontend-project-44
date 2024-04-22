@@ -1,31 +1,26 @@
-import getRandomNum from '../randomNumber.js';
+import getRandomNumber from '../randomNumber.js';
 import startGame from '../index.js';
-
-const calculate = (num1, num2, operator) => {
-  switch (operator) {
-    case '+':
-      return num1 + num2;
-    case '-':
-      return num1 - num2;
-    case '*':
-      return num1 * num2;
-    default:
-      return false;
-  }
-};
 
 const description = 'What is the result of the expression?';
 
-const getQuestionAndAnswer = () => {
-  const num1 = getRandomNum();
-  const num2 = getRandomNum();
-  const operators = ['+', '-', '*'];
-  const operator = operators[getRandomNum(0, operators.length - 1)];
-  const question = `${num1} ${operator} ${num2}`;
-  const answer = toString(calculate(num1, num2, operator));
-  return [question, answer];
+const questionAnswer = () => {
+  const firstNumber = getRandomNumber(1, 10);
+  const secondNumber = getRandomNumber(1, 10);
+  const operation = getRandomNumber(1, 3);
+  if (operation === 3) {
+    const question = `${firstNumber} + ${secondNumber}`;
+    const answer = firstNumber + secondNumber;
+    return startGame(question, String(answer));
+  } if (operation === 2) {
+    const question = `${firstNumber} - ${secondNumber}`;
+    const answer = firstNumber - secondNumber;
+    return startGame(question, String(answer));
+  }
+  const question = `${firstNumber} * ${secondNumber}`;
+  const answer = firstNumber * secondNumber;
+  return startGame(question, String(answer));
 };
 
-const start = () => startGame(getQuestionAndAnswer, description);
+const runGame = () => startGame(description, questionAnswer);
 
-export default start;
+export default runGame;
