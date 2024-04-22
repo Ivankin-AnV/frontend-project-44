@@ -11,12 +11,16 @@ const getRandomOperationSymbol = (symbols) => {
   return randomSymbol;
 };
 
-const calcArithmeticOperation = (symbol, firstValue, secondValue) => {
-  switch (symbol) {
-    case '+': return firstValue + secondValue;
-    case '-': return firstValue - secondValue;
-    case '*': return firstValue * secondValue;
-    default: return null;
+const calcArithmeticOperation = (num1, num2, operator) => {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      return false;
   }
 };
 
