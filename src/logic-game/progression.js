@@ -1,39 +1,48 @@
 import readlineSync from 'readline-sync';
 
+const generateRandomNumber = (max) => Math.floor(Math.random() * max) + 1;
+
 const generateProgression = (start, step, length) => {
   const progression = [];
   for (let i = 0; i < length; i += 1) {
-    progression.push(start + i * step);
+    progression.push(start + step * i);
   }
   return progression;
 };
 
 const hideNumber = (progression) => {
-  const hiddenIndex = Math.floor(Math.random() * progression.length);
-  const hiddenNumber = progression[hiddenIndex];
-  const question = progression.map((num, index) => (index === hiddenIndex ? '..' : num));
-  return { question, hiddenNumber };
+  const progressionCopy = [...progression];
+  const hiddenIndex = generateRandomNumber(progressionCopy.length);
+  const hiddenNumber = progressionCopy[hiddenIndex];
+  progressionCopy[hiddenIndex] = '..';
+  return { question: progressionCopy, hiddenNumber };
+};
+
+const displayCongratulations = (name) => {
+  console.log(`Congratulations, ${name}!`);
+};
+
+const displayQuestion = (question) => {
+  console.log(`Question: ${question.join(' ')}`);
 };
 
 const startGame = () => {
-  console.log('Welcome to the Brain Games!');
+  console.log('Welcome to the Brain Games!\n');
   const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!\n`);
-
+  console.log(`Hello, ${name}!`);
   console.log('What number is missing in the progression?');
 
   let correctAnswers = 0;
-  let isGameOver = false;
 
-  while (!isGameOver) {
-    const start = Math.floor(Math.random() * 10) + 1;
-    const step = Math.floor(Math.random() * 10) + 1;
-    const length = Math.floor(Math.random() * 6) + 5;
+  while (correctAnswers < 3) {
+    const start = generateRandomNumber(10);
+    const step = generateRandomNumber(10);
+    const length = generateRandomNumber(6) + 5;
 
     const progression = generateProgression(start, step, length);
     const { question, hiddenNumber } = hideNumber(progression);
 
-    console.log(`Question: ${question.join(' ')}`);
+    displayQuestion(question);
     const userAnswer = readlineSync.question('Your answer: ');
 
     if (Number(userAnswer) === hiddenNumber) {
@@ -42,16 +51,13 @@ const startGame = () => {
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${hiddenNumber}'.`);
       console.log(`Let's try again, ${name}!`);
-      isGameOver = true;
+      return;
     }
-
-    if (correctAnswers === 3) {
-      console.log(`Congratulations, ${name}!`);
-      isGameOver = true;
-    }
-    console.log();
   }
+
+  displayCongratulations(name);
 };
+
 export default () => {
   startGame();
 };
