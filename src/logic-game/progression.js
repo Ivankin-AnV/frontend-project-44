@@ -1,4 +1,4 @@
-import getRandomNum from '../randomNumber.js';
+import getRandomNumber from '../randomNumber.js';
 import startGame from '../index.js';
 
 const generateQuestion = (start, diff, length, ind) => {
@@ -15,9 +15,9 @@ const lengthOfProgression = 10;
 const description = 'What number is missing in the progression?';
 
 const getQuestionAndAnswer = () => {
-  const start = getRandomNum();
-  const diff = getRandomNum();
-  const indexOfHiddenValue = getRandomNum(0, lengthOfProgression - 1);
+  const start = getRandomNumber();
+  const diff = getRandomNumber();
+  const indexOfHiddenValue = getRandomNumber(0, lengthOfProgression - 1);
   const question = generateQuestion(start, diff, lengthOfProgression, indexOfHiddenValue);
   const answer = `${start + diff * indexOfHiddenValue}`;
   return [question, answer];
