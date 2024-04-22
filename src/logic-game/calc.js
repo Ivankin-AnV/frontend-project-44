@@ -1,17 +1,7 @@
 import runGame from '../index.js';
 import getRandomNumber from '../randomNumber.js';
 
-const operationSymbols = ['+', '-', '*'];
-const description = 'What is the result of the expression?';
-
-const getRandomOperationSymbol = (symbols) => {
-  const symbolsLength = symbols.length;
-  const randomIndex = getRandomNumber(0, symbolsLength);
-  const randomSymbol = symbols[randomIndex];
-  return randomSymbol;
-};
-
-const calcArithmeticOperation = (num1, num2, operator) => {
+const calculate = (num1, num2, operator) => {
   switch (operator) {
     case '+':
       return num1 + num2;
@@ -24,17 +14,18 @@ const calcArithmeticOperation = (num1, num2, operator) => {
   }
 };
 
+const description = 'What is the result of the expression?';
+
 const getQuestionAndAnswer = () => {
-  const randomSymbol = getRandomOperationSymbol(operationSymbols);
-  const firstNumber = getRandomNumber(0, 10);
-  const secondNubmer = getRandomNumber(0, 10);
-
-  const question = `${firstNumber} ${randomSymbol} ${secondNubmer}`;
-  const correctAnswer = String(calcArithmeticOperation(randomSymbol, firstNumber, secondNubmer));
-
-  return [question, correctAnswer];
+  const num1 = getRandomNumber();
+  const num2 = getRandomNumber();
+  const operators = ['+', '-', '*'];
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  const answer = toString(calculate(num1, num2, operator));
+  return [question, answer];
 };
 
-export default () => {
-  runGame(description, getQuestionAndAnswer);
-};
+const start = () => runGame(getQuestionAndAnswer, description);
+
+export default start;
