@@ -1,5 +1,5 @@
 import getRandomNumber from '../randomNumber.js';
-import runGame from '../index.js';
+import startGames from '../index.js';
 
 const generateQuestion = (start, diff, length, ind) => {
   const filledArray = Array.apply(0, Array(length)).map(() => (start));
@@ -23,6 +23,6 @@ const getQuestionAndAnswer = () => {
   return [question, answer];
 };
 
-const starGame = () => runGame(getQuestionAndAnswer, description);
+const startGame = () => startGames(getQuestionAndAnswer, description);
 
-export default starGame;
+export default startGame;

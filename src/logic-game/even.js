@@ -1,5 +1,5 @@
 import getRandomNumber from '../randomNumber.js';
-import runGame from '../index.js';
+import startGames from '../index.js';
 
 const isEven = (num) => num % 2 === 0;
 
@@ -11,6 +11,6 @@ const getQuestionAndAnswer = () => {
   return [question, answer];
 };
 
-const start = () => runGame(getQuestionAndAnswer, description);
+const gameStart = () => startGames(getQuestionAndAnswer, description);
 
-export default start;
+export default gameStart;

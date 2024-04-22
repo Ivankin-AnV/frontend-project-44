@@ -1,4 +1,4 @@
-import runGame from '../index.js';
+import startGames from '../index.js';
 import getRandomNumber from '../randomNumber.js';
 
 const calculate = (num1, num2, operator) => {
@@ -26,6 +26,6 @@ const getQuestionAndAnswer = () => {
   return [question, answer];
 };
 
-const start = () => runGame(getQuestionAndAnswer, description);
+const runGame = () => startGames(getQuestionAndAnswer, description);
 
-export default start;
+export default runGame;
